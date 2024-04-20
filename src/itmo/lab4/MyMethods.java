@@ -71,100 +71,41 @@ public class MyMethods
         }
     }
 
-    public static int[] GetNumbersWhichCanBeDividedByThree(int a, int b)
-    {
-        int q = 0;
-        for (int i = a; i <= b; i++)
-        {
-            if (i % 3 == 0)
-            {
-                q++;
-            }
-        }
-
-        int[] ints_new = new int[q];
-
-        int j = 0;
-        for (int i = a; i <= b; i++)
-        {
-            if (i % 3 == 0)
-            {
-                ints_new[j] = i;
-                j++;
-            }
-        }
-
-        return ints_new;
-    }
-
-    public static int[] GetNumbersWhichCanBeDividedByFive(int a, int b)
-    {
-        int q = 0;
-        for (int i = a; i <= b; i++)
-        {
-            if (i % 5 == 0)
-            {
-                q++;
-            }
-        }
-
-        int[] ints_new = new int[q];
-
-        int j = 0;
-        for (int i = a; i <= b; i++)
-        {
-            if (i % 5 == 0)
-            {
-                ints_new[j] = i;
-                j++;
-            }
-        }
-
-        return ints_new;
-    }
-
-    public static int[] GetNumbersWhichCanBeDividedByThreeAndFive(int a, int b)
-    {
-        int q = 0;
-        for (int i = a; i <= b; i++)
-        {
-            if ((i % 3 == 0) && (i % 5 == 0))
-            {
-                q++;
-            }
-        }
-
-        int[] ints_new = new int[q];
-
-        int j = 0;
-        for (int i = a; i <= b; i++)
-        {
-            if ((i % 3 == 0) && (i % 5 == 0))
-            {
-                ints_new[j] = i;
-                j++;
-            }
-        }
-
-        return ints_new;
-    }
-
-    public static void PrintNumbersWhichCanBeDividedByThreeAndFive(int a, int b)
+    public static void ShowNumbersWhichCanBeDividedByThreeAndFive()
     {
         System.out.println("");
-        System.out.println("Начальное число последовательности: " + a);
-        System.out.println("Конечное число последовательности: " + b);
-        System.out.print("Делится на 3: ");
-        int[] nums1 = GetNumbersWhichCanBeDividedByThree(a, b);
-        ShowNumbers(nums1);
+        System.out.print("Делится на 3:");
+        for (int i = 1; i <= 100; i++)
+        {
+            if (i % 3 == 0)
+            {
+                System.out.print(" ");
+                System.out.print(i);
+            }
+        }
 
-        System.out.print("Делится на 5: ");
-        int[] nums2 = GetNumbersWhichCanBeDividedByFive(a, b);
-        ShowNumbers(nums2);
+        System.out.println("");
+        System.out.print("Делится на 5:");
+        for (int i = 1; i <= 100; i++)
+        {
+            if (i % 5 == 0)
+            {
+                System.out.print(" ");
+                System.out.print(i);
+            }
+        }
 
-        System.out.print("Делится и на 3, и на 5: ");
-        int[] nums3 = GetNumbersWhichCanBeDividedByThreeAndFive(a, b);
-        ShowNumbers(nums3);
+        System.out.println("");
+        System.out.print("Делится на 3 и на 5:");
+        for (int i = 1; i <= 100; i++)
+        {
+            if (i % 3 == 0 && i % 5 == 0)
+            {
+                System.out.print(" ");
+                System.out.print(i);
+            }
+        }
+        System.out.println("");
     }
 
     public static boolean CheckSum(int n1, int n2, int n3)
@@ -180,7 +121,6 @@ public class MyMethods
     {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("");
         System.out.println("Введите первое число: ");
         int n1 = scanner.nextInt();
 
@@ -199,15 +139,13 @@ public class MyMethods
 
     public static boolean CheckCondition(int n1, int n2, int n3)
     {
-        boolean rez = ( (n2>n1) && (n3>n2) );
-        return rez;
+        return n2>n1 && n3>n2;
     }
 
     public static void InputNumbersAndCheckCondition()
     {
         Scanner scanner2 = new Scanner(System.in);
 
-        System.out.println("");
         System.out.println("Введите первое число: ");
         int n1 = scanner2.nextInt();
 
@@ -226,30 +164,12 @@ public class MyMethods
 
     public static boolean CheckFirstAndLastNumbersOfArray(int[] someArray, int n)
     {
-        boolean isFirst = false;
-        boolean isLast = false;
-
-        int q = 0;
-        for (int a : someArray)
+        if (someArray.length < 2) return false;
+        else if (someArray[0] == n || someArray[someArray.length-1] == n)
         {
-            if ((q == 0)&&(a == n))
-            {
-                isFirst = true;
-            }
-            q++;
+            return true;
         }
-
-        int i = 0;
-        for (int a : someArray)
-        {
-            if ( (i == (q-1) ) && (a == n) )
-            {
-                isLast = true;
-            }
-            i++;
-        }
-
-        return ( isFirst || isLast );
+        else return false;
     }
 
     public static boolean CheckArrayContains(int[] arr, int n1, int n2)
@@ -314,18 +234,11 @@ public class MyMethods
 
     public static void ReplaceFirstAndLastElementsOfArray(int[] arr)
     {
-        int q = 0;
-
-        for (int a : arr)
-        {
-            q++;
-        }
-
         int firstElement = arr[0];
-        int lastElement = arr[q-1];
+        int lastElement = arr[arr.length-1];
 
         arr[0] = lastElement;
-        arr[q-1] = firstElement;
+        arr[arr.length-1] = firstElement;
     }
 
     public static int GetFirstUniqueNumber(int[] arr)

@@ -17,29 +17,15 @@ public class Lab4
 
         /** Лаба 4. Часть 1. Упражнение 2. */
 
-        MyMethods.PrintNumbersWhichCanBeDividedByThreeAndFive(1, 100);
-
+        MyMethods.ShowNumbersWhichCanBeDividedByThreeAndFive();
+        System.out.println("");
 
         /** Лаба 4. Часть 1. Упражнение 3. */
-
-        System.out.println("");
-        boolean b1 = MyMethods.CheckSum(5, 4, 9);
-        System.out.println(b1);
-
-        boolean b2 = MyMethods.CheckSum(2, 2, 5);
-        System.out.println(b2);
 
         MyMethods.InputNumbersAndCheckSum();
 
 
         /** Лаба 4. Часть 1. Упражнение 4. */
-
-        System.out.println("");
-        boolean b3 = MyMethods.CheckCondition(4, 5, 9);
-        System.out.println(b3);
-
-        boolean b4 = MyMethods.CheckCondition(4, 2, 5);
-        System.out.println(b4);
 
         MyMethods.InputNumbersAndCheckCondition();
 
@@ -56,7 +42,6 @@ public class Lab4
         boolean bArr3 = MyMethods.CheckFirstAndLastNumbersOfArray(arr3, 3);
         boolean bArr4 = MyMethods.CheckFirstAndLastNumbersOfArray(arr4, 3);
 
-        System.out.println("");
         System.out.println(bArr1);
         System.out.println(bArr2);
         System.out.println(bArr3);
